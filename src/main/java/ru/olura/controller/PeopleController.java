@@ -26,7 +26,6 @@ public class PeopleController {
     public String getAllPeple(Model model) {
         List<Person> people = personDao.index();
         model.addAttribute("people", people);
-        System.out.println(people);
         return "people/index";
     }
 
@@ -35,7 +34,6 @@ public class PeopleController {
         Person person = personDao.findById(id).orElseThrow();
         model.addAttribute("person", person);
         model.addAttribute("books", personDao.getPersonBooks(id));
-        System.out.println(person);
         return "people/person";
     }
 

@@ -1,6 +1,5 @@
 package ru.olura.models;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Person {

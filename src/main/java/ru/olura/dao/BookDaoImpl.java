@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.olura.models.Book;
-import ru.olura.models.Person;
 
 import java.util.List;
 import java.util.Optional;
