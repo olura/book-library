@@ -5,9 +5,13 @@ import java.util.Objects;
 public class Book {
 
     private Long id;
+
     private String name;
+
     private String author;
+
     private int year;
+
     private Long personId;
 
     public Book() {
@@ -63,10 +67,15 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Book book = (Book) o;
-        return id == book.id && year == book.year && Objects.equals(name, book.name) && Objects.equals(author, book.author);
+        return id == book.id && year == book.year && Objects.equals(name, book.name)
+                && Objects.equals(author, book.author);
     }
 
     @Override

@@ -14,6 +14,7 @@ import java.util.Optional;
 public class PersonDaoImpl implements PersonDao {
 
     private final JdbcTemplate jdbcTemplate;
+
     private final BookDao bookDao;
 
     @Autowired
@@ -49,7 +50,8 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public Optional<Person> findById(Long id) {
         final String FIND_BY_ID_SQL = "SELECT * FROM person WHERE id=?";
-        return jdbcTemplate.query(FIND_BY_ID_SQL, new Object[]{id}, new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
+        return jdbcTemplate.query(FIND_BY_ID_SQL, new Object[]{id},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
     }
 
     @Override

@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/people")
 public class PeopleController {
 
-    PersonDao personDao;
+    private PersonDao personDao;
 
     @Autowired
     public PeopleController(PersonDao personDao) {

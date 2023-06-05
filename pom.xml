@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.olura</groupId>
-  <artifactId>bookLibrary</artifactId>
+  <artifactId>book-library</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
   <name>bookLibrary Maven Webapp</name>
@@ -12,6 +12,9 @@
     <slf4j.version>2.0.7</slf4j.version>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
+    <checkstyle.version>10.9.1</checkstyle.version>
+    <checkstyle.config.url>https://raw.githubusercontent.com/OtusTeam/Spring/master/checkstyle.xml</checkstyle.config.url>
   </properties>
 
   <dependencies>
@@ -83,6 +86,37 @@
 
   </dependencies>
   <build>
-    <finalName>bookLibrary</finalName>
+    <finalName>book-library</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <configLocation>${checkstyle.config.url}</configLocation>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

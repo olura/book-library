@@ -12,7 +12,7 @@ import java.util.Optional;
 @Component
 public class BookDaoImpl implements BookDao {
 
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public BookDaoImpl(JdbcTemplate jdbcTemplate) {
@@ -28,7 +28,8 @@ public class BookDaoImpl implements BookDao {
     @Override
     public int update(Book book) {
         final String SQL = "UPDATE book SET name=?, author=?, year=?, person_id=? WHERE id=?";
-        return jdbcTemplate.update(SQL, book.getName(), book.getAuthor(), book.getYear(), book.getPersonId(), book.getId());
+        return jdbcTemplate.update(SQL, book.getName(), book.getAuthor(),
+                book.getYear(), book.getPersonId(), book.getId());
     }
 
     @Override

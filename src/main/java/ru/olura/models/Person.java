@@ -5,7 +5,9 @@ import java.util.Objects;
 public class Person {
 
     private Long id;
+
     private String name;
+
     private int birthDate;
 
     public Person() {
@@ -43,8 +45,12 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Person person = (Person) o;
         return id == person.id && Objects.equals(name, person.name) && Objects.equals(birthDate, person.birthDate);
     }

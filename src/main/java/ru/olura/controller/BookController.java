@@ -12,7 +12,7 @@ import ru.olura.dao.BookDao;
 @RequestMapping("/books")
 public class BookController {
 
-    BookDao bookDao;
+    private BookDao bookDao;
 
     @Autowired
     public BookController(BookDao bookDao) {
@@ -24,6 +24,7 @@ public class BookController {
         model.addAttribute("books", bookDao.index());
         return "books/index";
     }
+
     @GetMapping("/{id}")
     String getBook(@PathVariable("id") long id, Model model) {
         model.addAttribute("book", bookDao.findById(id).get());
